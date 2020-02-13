@@ -13,6 +13,23 @@ class DadoSimple(Dado):
     def __init__(self):
         super().__init__(1, 2, 3, 4, 5, 6)
 
+class DadoSimpleTrucado(Dado):
+    """
+    Simulará un dado trucado en el que el 5 y el 6 tienen el doble de posibilidades de salir.
+    """
+
+    def __init__(self):
+        super().__init__(1, 2, 3, 4, 5, 5, 6, 6)  # añadimos un 5 y un 6 más a los valores posibles del dado.
+
+    @property
+    def caras(self):
+        """
+        Propiedad caras redefinida de la clase Dado para que salgan seis caras, si no la redefinimos saldrán
+        ocho caras en vez de seis.
+        """
+        return [1, 2, 3, 4, 5, 6]
+
+
 if __name__ == "__main__":
     # Probamos dado simple
     d = DadoSimple()
